@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Project } from "@/lib/content";
-import Link from "next/link";
+
 
 export default function ProjectsTimeline({ projects }: { projects: Project[] }) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
