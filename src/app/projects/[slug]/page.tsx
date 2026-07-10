@@ -10,8 +10,9 @@ import ReactMarkdown from 'react-markdown';
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
   const { slug } = await params;
 
-  const mdxPath = path.join(process.cwd(), `content/projects/${slug}.mdx`);
-  const readmePath = path.join(process.cwd(), `content/projects/${slug}/README.md`);
+  const decodedSlug = decodeURIComponent(slug);
+  const mdxPath = path.join(process.cwd(), `content/projects/${decodedSlug}.mdx`);
+  const readmePath = path.join(process.cwd(), `content/projects/${decodedSlug}/README.md`);
 
   let hasReadme = false;
   let raw = '';
@@ -34,7 +35,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
           <span className="font-mono">back to projects</span>
         </Link>
         <div className="text-neutral-400 font-mono">
-          {slug.replace(/_/g, ' ')}
+          {decodedSlug.replace(/_/g, ' ')}
         </div>
       </header>
 
