@@ -47,6 +47,27 @@ export function getProjects(): Project[] {
   return projects.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
+export function getProjectBySlug(slug: string): (Project & { content: string }) | null {
+  const projectsDir = path.join(contentDir, 'projects');
+  const filePath = path.join(projectsDir, `${slug}.mdx`);
+  
+  if (!fs.existsSync(filePath)) return null;
+  
+  const fileContent = fs.readFileSync(filePath, 'utf8');
+  const { data, content } = matter(fileContent);
+  
+  return {
+    slug,
+    title: data.title,
+    date: data.date,
+    description: data.description,
+    tags: data.tags || [],
+    githubUrl: data.githubUrl,
+    liveUrl: data.liveUrl,
+    content: content,
+  } as Project & { content: string };
+}
+
 export function getLearnings(): Learning[] {
   const learningsDir = path.join(contentDir, 'learnings');
   if (!fs.existsSync(learningsDir)) return [];
