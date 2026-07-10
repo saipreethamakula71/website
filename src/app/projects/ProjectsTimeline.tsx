@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Project } from "@/lib/content";
+import Link from "next/link";
 
 export default function ProjectsTimeline({ projects }: { projects: Project[] }) {
   const [activeTag, setActiveTag] = useState<string | null>(null);
@@ -52,7 +53,11 @@ export default function ProjectsTimeline({ projects }: { projects: Project[] }) 
             <div className="absolute -left-1.5 md:-left-2 top-1.5 w-3 h-3 md:w-4 md:h-4 bg-brand-teal rounded-full" />
             
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
-              <h3 className="text-2xl font-bold">{project.title}</h3>
+              <h3 className="text-2xl font-bold">
+                <Link href={`/projects/${project.slug}`} className="hover:text-brand-teal transition-colors">
+                  {project.title}
+                </Link>
+              </h3>
               <time className="text-neutral-500 font-mono text-sm md:ml-4">{project.date}</time>
             </div>
             
@@ -69,6 +74,12 @@ export default function ProjectsTimeline({ projects }: { projects: Project[] }) 
             </p>
             
             <div className="flex items-center gap-4 font-mono text-sm">
+              <Link 
+                href={`/projects/${project.slug}`} 
+                className="text-brand-teal hover:text-white transition-colors underline underline-offset-4"
+              >
+                Project Details & Chat
+              </Link>
               {project.githubUrl && (
                 <a 
                   href={project.githubUrl} 
