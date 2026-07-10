@@ -1,0 +1,10 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/readme-chat/route": "/api/readme-chat",
+  "/favicon.ico/route": "/favicon.ico",
+  "/learnings/page": "/learnings",
+  "/page": "/",
+  "/projects/[slug]/page": "/projects/[slug]",
+  "/projects/page": "/projects"
+}

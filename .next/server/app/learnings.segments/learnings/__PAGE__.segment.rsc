@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[88910,["/_next/static/chunks/0f_gcmbixytvk.js","/_next/static/chunks/2ao2164mytlsd.js","/_next/static/chunks/027a39traf3m7.js"],""]
+3:I[59185,["/_next/static/chunks/0f_gcmbixytvk.js","/_next/static/chunks/2ao2164mytlsd.js","/_next/static/chunks/027a39traf3m7.js"],"default"]
+4:I[72443,["/_next/static/chunks/0f_gcmbixytvk.js","/_next/static/chunks/2ao2164mytlsd.js","/_next/static/chunks/027a39traf3m7.js"],"default"]
+5:I[96638,["/_next/static/chunks/0f_gcmbixytvk.js","/_next/static/chunks/2ao2164mytlsd.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen p-8 max-w-4xl mx-auto w-full","children":[["$","header",null,{"className":"flex items-center justify-between mb-12","children":[["$","$L2",null,{"href":"/","className":"flex items-center gap-2 text-neutral-400 hover:text-white transition-colors","children":[["$","$L3",null,{"iconNode":[["path",{"d":"m12 19-7-7 7-7","key":"1l729n"}],["path",{"d":"M19 12H5","key":"x3x0zl"}]],"className":"lucide-arrow-left","size":16}],["$","span",null,{"className":"font-mono","children":"home"}]]}],["$","div",null,{"className":"text-neutral-400 font-mono","children":[1," ","entry"]}]]}],["$","$L4",null,{"learnings":[{"slug":"Memory","title":"More about Memory","date":"2026-07-10","topic":"Computer Architecture","summary":"Deep dive into how different kinds of memory like DRAM , SRAM work "}]}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/027a39traf3m7.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"z-xm2_LbKi8BkU7ex-J82"}
+7:null
