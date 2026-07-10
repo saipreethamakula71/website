@@ -54,11 +54,9 @@ export default function ProjectsTimeline({ projects }: { projects: Project[] }) 
             <div className="absolute -left-1.5 md:-left-2 top-1.5 w-3 h-3 md:w-4 md:h-4 bg-brand-teal rounded-full" />
             
             <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
-              <h3 className="text-2xl font-bold">
-                <Link href={`/projects/${project.slug}`} className="hover:text-brand-teal transition-colors">
-                  {project.title}
-                </Link>
-              </h3>
+              <Link href={`/readme-assistant?project=${project.slug}`} className="hover:text-brand-teal transition-colors">
+                <h3 className="text-2xl font-bold">{project.title}</h3>
+              </Link>
               <time className="text-neutral-500 font-mono text-sm md:ml-4">{project.date}</time>
             </div>
             
@@ -76,10 +74,10 @@ export default function ProjectsTimeline({ projects }: { projects: Project[] }) 
             
             <div className="flex items-center gap-4 font-mono text-sm">
               <Link 
-                href={`/projects/${project.slug}`} 
+                href={`/readme-assistant?project=${project.slug}`} 
                 className="text-brand-teal hover:text-white transition-colors underline underline-offset-4"
               >
-                Project Details & Chat
+                Open Readme Assistant
               </Link>
               {project.githubUrl && (
                 <a 
