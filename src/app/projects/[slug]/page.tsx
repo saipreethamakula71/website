@@ -1,45 +1,29 @@
 import fs from 'fs';
 import path from 'path';
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkHtml from 'remark-html';
 import ReadmeAssistant from '@/components/ReadmeAssistant';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { notFound } from 'next/navigation';
-
 import matter from 'gray-matter';
-
-async function markdownToHtml(markdown: string) {
-  const result = await unified()
-    .use(remarkParse)
-    .use(remarkHtml)
-    .process(markdown);
-  return result.toString();
-}
+import ReactMarkdown from 'react-markdown';
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  // Await params as per Next.js 15+ conventions
   const { slug } = await params;
 
-  // Also check for the .mdx file since projects are stored as .mdx
   const mdxPath = path.join(process.cwd(), `content/projects/${slug}.mdx`);
   const readmePath = path.join(process.cwd(), `content/projects/${slug}/README.md`);
 
   let hasReadme = false;
   let raw = '';
-  let renderedHtml = '';
 
   if (fs.existsSync(mdxPath)) {
     hasReadme = true;
     const fileContent = fs.readFileSync(mdxPath, 'utf8');
-    const { content } = matter(fileContent); // strip frontmatter
+    const { content } = matter(fileContent);
     raw = content;
-    renderedHtml = await markdownToHtml(raw);
   } else if (fs.existsSync(readmePath)) {
     hasReadme = true;
     raw = fs.readFileSync(readmePath, 'utf8');
-    renderedHtml = await markdownToHtml(raw);
   }
 
   return (
@@ -56,10 +40,9 @@ export default async function ProjectPage({ params }: { params: { slug: string }
 
       {hasReadme ? (
         <>
-          <article
-            className="prose prose-invert prose-brand max-w-none mb-12 custom-markdown"
-            dangerouslySetInnerHTML={{ __html: renderedHtml }}
-          />
+          <article className="prose prose-invert prose-brand max-w-none mb-12 custom-markdown">
+            <ReactMarkdown>{raw}</ReactMarkdown>
+          </article>
           <ReadmeAssistant readme={raw} />
         </>
       ) : (
